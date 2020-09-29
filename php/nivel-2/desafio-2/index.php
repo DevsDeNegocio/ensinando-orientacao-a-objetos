@@ -65,7 +65,7 @@ $carro = new Carro();
     $carro->problema();
     ?>
 
-    <article class="<?=$carro->valor == 49000 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
         <label>
             Carro com 1 problema:
         </label>
@@ -73,25 +73,26 @@ $carro = new Carro();
             O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            O valor do carro <b>deveria ser R$49000</b>
+            O valor do carro <b>deveria ser R$45000</b>
         </div>
     </article>
 
     <?php
+    $carro = new Carro();
     $carro->problema();
     $carro->problema();
     $carro->problema();
     $carro->problema();
     ?>
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 32805 ? 'right' : 'wrong'?>">
         <label>
-            Carro com 5 problema:
+            Carro com 4 problema:
         </label>
         <div>
             O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            O valor do carro <b>deveria ser R$49000</b>
+            O valor do carro <b>deveria ser R$32805</b>
         </div>
     </article>
 </section>
@@ -187,7 +188,7 @@ $carro = new Carro();
     $carro->problema();
     $carro->problema();
     ?>
-    <article class="<?=$carro->valor == 43000 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 36450 ? 'right' : 'wrong'?>">
         <label>
             Carro que rodou menos de 1000 km e teve 2 problemas
         </label>
@@ -195,23 +196,23 @@ $carro = new Carro();
             O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
-            O valor do carro <b>deveria ser R$43000</b>
+            O valor do carro <b>deveria ser R$36450</b>
         </div>
     </article>
     <?php
     $carro = new Carro();
     $carro->rodar(60000);
-    for($i = 0; $i<10; $i++) $carro->problema();
+    for($i = 0; $i<2; $i++) $carro->problema();
     ?>
-    <article class="<?=$carro->valor == 20000 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 24300 ? 'right' : 'wrong'?>">
         <label>
-            Carro que rodou menos de 60000km e teve 10 problemas
+            Carro que rodou menos de 60000km e teve 2 problemas
         </label>
         <div>
             O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
-            O valor do carro <b>deveria ser R$20000</b>
+            O valor do carro <b>deveria ser R$24300</b>
         </div>
     </article>
 </section>
@@ -255,8 +256,8 @@ $carro = new Carro();
 
     <?php
     $carro = new Carro();
-    for($i = 0; $i < 46; $i++) $carro->problema();
-    $carro->rodar(1000);
+    $carro->rodar(60000);
+    for($i = 0; $i < 10000; $i++) $carro->problema();
     ?>
     <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
         <label>
