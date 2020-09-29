@@ -215,5 +215,60 @@ $carro = new Carro();
         </div>
     </article>
 </section>
+
+<section>
+    <h2>Teste de limite:</h2>
+
+
+    <?php
+    $carro = new Carro();
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
+        <label>
+            Mesmo com todos os problemas possíveis não deve baixar de 500 reais
+        </label>
+        <div>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$500</b>
+        </div>
+    </article>
+
+    <?php
+    $carro = new Carro();
+    $carro->rodar(60000);
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
+        <label>
+            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (km + problema)
+        </label>
+        <div>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$500</b>
+        </div>
+    </article>
+
+    <?php
+    $carro = new Carro();
+    $carro->rodar(60000);
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
+        <label>
+            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (problema + km)
+        </label>
+        <div>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$500</b>
+        </div>
+    </article>
+</section>
 </body>
 </html>

@@ -15,6 +15,8 @@ Esta classe também deve ter 2 métodos **problema** e **rodar**.
     - Se rodou mais de 10000 Km diminui 10000 do valor do carro
     - Se rodou mais de 60000 Km diminui 20000 do valor do carro
 
+- O valor do carro não pode ser menor do que 500 reais (se der perda todal vende pro ferro velho)
+
 ## Regras
 
 Você só pode alterar seu arquivo Pessoa.php, nada nos outros arquivos, como index.php ou test.php, pode ser alterado.
