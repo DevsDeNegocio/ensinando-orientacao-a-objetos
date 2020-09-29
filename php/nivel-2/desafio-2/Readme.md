@@ -13,7 +13,6 @@ Caso nenhum tipo seja passado, o tipo ret deve ser atribuido automaticamente.
 Esta classe também deve ter 1 atributo chamado **valor** e por padrão uma pessoa deve iniciar com:
  - **50000** para carro ret
  - **100000** para carro sedan
- - **200000** para carro esportivo
  - **1000000** para carro luxo
 
 Esta classe também deve ter 2 métodos **problema** e **rodar**.
@@ -25,7 +24,7 @@ Esta classe também deve ter 2 métodos **problema** e **rodar**.
     - Se rodou mais de 10000 Km diminui 20% do valor atual do carro
     - Se rodou mais de 60000 Km diminui 40% do valor atual do carro
 
-- O valor do carro não pode ser menor do que 10% do valor original do carro
+- O valor do carro não pode ser menor do que 1% do valor original do carro
 
 ## Regras
 
