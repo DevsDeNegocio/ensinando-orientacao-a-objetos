@@ -2,6 +2,29 @@
 
 require('./Carro.php');
 
+
+function article($valor, $mensagem, $carro){
+    $class = $carro->valor == $valor ? 'right' : 'wrong';
+    echo "<article class=\"$class\">
+        <label>
+            $mensagem
+        </label>
+        <div>
+            O valor do carro <b> é R$$carro->valor</b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$$valor</b>
+        </div>
+    </article> ";
+}
+
+function section_open($message){
+    echo "<section><h2>$message</h2>";
+}
+function section_close(){
+    echo "</section>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -11,6 +34,7 @@ require('./Carro.php');
     <style>
         body{
             margin: 0;
+            font-family: Arial, sans-serif;
         }
         main, section{
             padding: 16px;
@@ -40,478 +64,243 @@ require('./Carro.php');
     </style>
 </head>
 <body>
-<main>
     <h1>Carro Ret</h1>
-    <h2>Teste simples:</h2>
     <?php
+    section_open('Teste simples:');
     $carro = new Carro();
-    ?>
-    <article class="<?=$carro->valor == 50000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro deve iniciar com o valor padrão de R$50.000
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$50000</b>
-        </div>
-    </article>
-</main>
+    article(50000, 'Carro deve iniciar com o valor padrão de R$50000', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de carro com problemas:</h2>
-
-    <?php
+    section_open('Teste de carro com problemas:');
+    $carro = new Carro();
     $carro->problema();
-    ?>
+    article(45000, 'Carro com 1 problema', $carro);
 
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro com 1 problema:
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-
-    <?php
     $carro = new Carro();
     $carro->problema();
     $carro->problema();
     $carro->problema();
     $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 32805 ? 'right' : 'wrong'?>">
-        <label>
-            Carro com 4 problema:
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$32805</b>
-        </div>
-    </article>
-</section>
+    article(32805, 'Carro com 4 problemas', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de carro que já rodou:</h2>
-
-
-    <?php
+    section_open('Teste de carro que já rodou:');
     $carro = new Carro();
     $carro->rodar(999);
-    ?>
-    <article class="<?=$carro->valor == 50000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 1000 km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$49000</b>
-        </div>
-    </article>
-    <?php
+    article(50000, 'Carro que rodou menos de 1000 km', $carro);
+
     $carro = new Carro();
     $carro->rodar(1000);
-    ?>
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou exatos 1000 km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-    <?php
+    article(45000, 'Carro que rodou exatos 1000 km', $carro);
+
     $carro = new Carro();
     $carro->rodar(5000);
-    ?>
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 1000km mas menos de 10000km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-    <?php
+    article(45000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
+
     $carro = new Carro();
     $carro->rodar(10000);
-    ?>
-    <article class="<?=$carro->valor == 40000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 10000km
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$40000</b>
-        </div>
-    </article>
-    <?php
+    article(40000, 'Carro que rodou mais de 10000km', $carro);
+
     $carro = new Carro();
     $carro->rodar(60000);
-    ?>
-    <article class="<?=$carro->valor == 30000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 60000km
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$30000</b>
-        </div>
-    </article>
-</section>
+    article(30000, 'Carro que rodou mais de 10000km', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de problema no carro + km rodados:</h2>
-
-
-    <?php
+    section_open('Teste de problema no carro + km rodados:');
     $carro = new Carro();
     $carro->rodar(1000);
     $carro->problema();
     $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 36450 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 1000 km e teve 2 problemas
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$36450</b>
-        </div>
-    </article>
-    <?php
+    article(36450, 'Carro que rodou menos de 1000 km', $carro);
+
     $carro = new Carro();
     $carro->rodar(60000);
     for($i = 0; $i<2; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 24300 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 60000km e teve 2 problemas
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$24300</b>
-        </div>
-    </article>
-</section>
+    article(24300, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de limite:</h2>
+    section_open('Teste de limite:');
 
-
-    <?php
     $carro = new Carro();
     for($i = 0; $i < 10000; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
+    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
 
-    <?php
     $carro = new Carro();
     $carro->rodar(60000);
     for($i = 0; $i < 10000; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (km + problema)
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
+    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
 
-    <?php
     $carro = new Carro();
     $carro->rodar(60000);
     for($i = 0; $i < 10000; $i++) $carro->problema();
+    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
+
+    $carro = new Carro();
+    for($i = 0; $i < 46; $i++) $carro->problema();
+    $carro->rodar(1000);
+    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
+    section_close();
     ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (problema + km)
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
-</section>
 
 
-
-
-
-
-
-
-<main>
+    <hr/>
     <h1>Carro Sedan</h1>
-    <h2>Teste simples:</h2>
     <?php
+    section_open('Teste simples:');
     $carro = new Carro('sedan');
-    ?>
+    article(100000, 'Carro deve iniciar com o valor padrão de R$100000', $carro);
+    section_close();
 
-    <article class="<?=$carro->valor == 100000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro deve iniciar com o valor padrão de R$50.000
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$50000</b>
-        </div>
-    </article>
-</main>
-
-<section>
-    <h2>Teste de carro com problemas:</h2>
-
-    <?php
+    section_open('Teste de carro com problemas:');
+    $carro = new Carro('sedan');
     $carro->problema();
-    ?>
+    article(90000, 'Carro com 1 problema', $carro);
 
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro com 1 problema:
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-
-    <?php
-    $carro = new Carro();
+    $carro = new Carro('sedan');
     $carro->problema();
     $carro->problema();
     $carro->problema();
     $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 32805 ? 'right' : 'wrong'?>">
-        <label>
-            Carro com 4 problema:
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$32805</b>
-        </div>
-    </article>
-</section>
+    article(65610, 'Carro com 4 problemas', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de carro que já rodou:</h2>
-
-
-    <?php
-    $carro = new Carro();
+    section_open('Teste de carro que já rodou:');
+    $carro = new Carro('sedan');
     $carro->rodar(999);
-    ?>
-    <article class="<?=$carro->valor == 50000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 1000 km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$49000</b>
-        </div>
-    </article>
-    <?php
-    $carro = new Carro();
+    article(100000, 'Carro que rodou menos de 1000 km', $carro);
+
+    $carro = new Carro('sedan');
     $carro->rodar(1000);
-    ?>
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou exatos 1000 km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-    <?php
-    $carro = new Carro();
+    article(90000, 'Carro que rodou exatos 1000 km', $carro);
+
+    $carro = new Carro('sedan');
     $carro->rodar(5000);
-    ?>
-    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 1000km mas menos de 10000km
-        </label>
-        <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$45000</b>
-        </div>
-    </article>
-    <?php
-    $carro = new Carro();
+    article(90000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
+
+    $carro = new Carro('sedan');
     $carro->rodar(10000);
-    ?>
-    <article class="<?=$carro->valor == 40000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 10000km
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$40000</b>
-        </div>
-    </article>
-    <?php
-    $carro = new Carro();
+    article(80000, 'Carro que rodou mais de 10000km', $carro);
+
+    $carro = new Carro('sedan');
     $carro->rodar(60000);
-    ?>
-    <article class="<?=$carro->valor == 30000 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou mais de 60000km
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$30000</b>
-        </div>
-    </article>
-</section>
+    article(60000, 'Carro que rodou mais de 10000km', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de problema no carro + km rodados:</h2>
-
-
-    <?php
-    $carro = new Carro();
+    section_open('Teste de problema no carro + km rodados:');
+    $carro = new Carro('sedan');
     $carro->rodar(1000);
     $carro->problema();
     $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 36450 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 1000 km e teve 2 problemas
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$36450</b>
-        </div>
-    </article>
-    <?php
-    $carro = new Carro();
+    article(72900, 'Carro que rodou menos de 1000 km', $carro);
+
+    $carro = new Carro('sedan');
     $carro->rodar(60000);
     for($i = 0; $i<2; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 24300 ? 'right' : 'wrong'?>">
-        <label>
-            Carro que rodou menos de 60000km e teve 2 problemas
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$24300</b>
-        </div>
-    </article>
-</section>
+    article(48600, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
+    section_close();
 
-<section>
-    <h2>Teste de limite:</h2>
+    section_open('Teste de limite:');
 
-
-    <?php
-    $carro = new Carro();
+    $carro = new Carro('sedan');
     for($i = 0; $i < 10000; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
+    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
 
-    <?php
-    $carro = new Carro();
+    $carro = new Carro('sedan');
     $carro->rodar(60000);
     for($i = 0; $i < 10000; $i++) $carro->problema();
-    ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (km + problema)
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
+    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
 
-    <?php
-    $carro = new Carro();
+    $carro = new Carro('sedan');
     $carro->rodar(60000);
     for($i = 0; $i < 10000; $i++) $carro->problema();
+    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
+
+    $carro = new Carro('sedan');
+    for($i = 0; $i < 46; $i++) $carro->problema();
+    $carro->rodar(1000);
+    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
+    section_close();
     ?>
-    <article class="<?=$carro->valor == 500 ? 'right' : 'wrong'?>">
-        <label>
-            Mesmo com todos os problemas possíveis não deve baixar de 500 reais (problema + km)
-        </label>
-        <div>
-            O valor do carro <b> é R$<?=$carro->valor?></b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$500</b>
-        </div>
-    </article>
-</section>
+
+
+
+    <hr/>
+    <h1>Carro Luxo</h1>
+    <?php
+    section_open('Teste simples:');
+    $carro = new Carro('luxo');
+    article(1000000, 'Carro deve iniciar com o valor padrão de R$100000', $carro);
+    section_close();
+
+    section_open('Teste de carro com problemas:');
+    $carro = new Carro('luxo');
+    $carro->problema();
+    article(900000, 'Carro com 1 problema', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->problema();
+    $carro->problema();
+    $carro->problema();
+    $carro->problema();
+    article(656100, 'Carro com 4 problemas', $carro);
+    section_close();
+
+    section_open('Teste de carro que já rodou:');
+    $carro = new Carro('luxo');
+    $carro->rodar(999);
+    article(1000000, 'Carro que rodou menos de 1000 km', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(1000);
+    article(900000, 'Carro que rodou exatos 1000 km', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(5000);
+    article(900000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(10000);
+    article(800000, 'Carro que rodou mais de 10000km', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(60000);
+    article(600000, 'Carro que rodou mais de 10000km', $carro);
+    section_close();
+
+    section_open('Teste de problema no carro + km rodados:');
+    $carro = new Carro('luxo');
+    $carro->rodar(1000);
+    $carro->problema();
+    $carro->problema();
+    article(729000, 'Carro que rodou menos de 1000 km', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(60000);
+    for($i = 0; $i<2; $i++) $carro->problema();
+    article(486000, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
+    section_close();
+
+    section_open('Teste de limite:');
+
+    $carro = new Carro('luxo');
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(60000);
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
+
+    $carro = new Carro('luxo');
+    $carro->rodar(60000);
+    for($i = 0; $i < 10000; $i++) $carro->problema();
+    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
+
+    $carro = new Carro('luxo');
+    for($i = 0; $i < 46; $i++) $carro->problema();
+    $carro->rodar(1000);
+    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
+    section_close();
+    ?>
 </body>
 </html>
