@@ -166,13 +166,52 @@ $carro = new Carro();
     ?>
     <article class="<?=$carro->valor == 30000 ? 'right' : 'wrong'?>">
         <label>
-            Carro que rodou mais de 10000km
+            Carro que rodou mais de 60000km
         </label>
         <div>
             O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
             O valor do carro <b>deveria ser R$30000</b>
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2>Teste de problema no carro + km rodados:</h2>
+
+
+    <?php
+    $carro = new Carro();
+    $carro->rodar(1000);
+    $carro->problema();
+    $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 43000 ? 'right' : 'wrong'?>">
+        <label>
+            Carro que rodou menos de 1000 km e teve 2 problemas
+        </label>
+        <div>
+            O valor do carro <b> éR$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$43000</b>
+        </div>
+    </article>
+    <?php
+    $carro = new Carro();
+    $carro->rodar(60000);
+    for($i = 0; $i<10; $i++) $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 20000 ? 'right' : 'wrong'?>">
+        <label>
+            Carro que rodou menos de 60000km e teve 10 problemas
+        </label>
+        <div>
+            O valor do carro <b> éR$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$20000</b>
         </div>
     </article>
 </section>
