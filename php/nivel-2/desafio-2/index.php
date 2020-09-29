@@ -2,8 +2,6 @@
 
 require('./Carro.php');
 
-$carro = new Carro();
-
 ?>
 <!DOCTYPE html>
 <html lang="pt">

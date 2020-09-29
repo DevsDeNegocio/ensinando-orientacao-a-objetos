@@ -1,21 +1,31 @@
 # Instruções
 
+Esta é uma evolução do desafio-2 de nível-1 encontrado em: [DevsDeNegocio/.../desafio-2](https://github.com/DevsDeNegocio/ensinando-orientacao-a-objetos/tree/master/php/nivel-1/desafio-2)
+
 Você deve criar um arquivo chamado **Carro.php** nesta pasta.
 
 Este arquivo deve conter uma classe chamada **Carro**.
 
-Esta classe deve ter 1 atributo chamado **valor** e por padrão uma pessoa deve iniciar com **50000**.
+Esta classe ao ser iniciada deve informar o tipo de carro, sendo os tipos aceitos: luxo, esportivo, sedan, ret
+
+Caso nenhum tipo seja passado, o tipo ret deve ser atribuido automaticamente.
+
+Esta classe também deve ter 1 atributo chamado **valor** e por padrão uma pessoa deve iniciar com:
+ - **50000** para carro ret
+ - **100000** para carro sedan
+ - **200000** para carro esportivo
+ - **1000000** para carro luxo
 
 Esta classe também deve ter 2 métodos **problema** e **rodar**.
 
-- Sempre que o mecanico avalia o carro e acha um **problema** reduz 1000 reais do valor do carro
+- Sempre que o mecanico avalia o carro e acha um **problema** reduz 10% do valor atual do carro.
     
 - O método rodar vai ser executado 1 vez apenas e segue as seguinter regras:
-    - Se rodou mais de 1000 Km diminui 5000 do valor do carro
-    - Se rodou mais de 10000 Km diminui 10000 do valor do carro
-    - Se rodou mais de 60000 Km diminui 20000 do valor do carro
+    - Se rodou mais de 1000 Km diminui 10% do valor atual do carro
+    - Se rodou mais de 10000 Km diminui 20% do valor atual do carro
+    - Se rodou mais de 60000 Km diminui 40% do valor atual do carro
 
-- O valor do carro não pode ser menor do que 500 reais (se der perda todal vende para o ferro-velho)
+- O valor do carro não pode ser menor do que 10% do valor original do carro
 
 ## Regras
 
