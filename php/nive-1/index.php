@@ -52,25 +52,25 @@ $pessoa_desleixada = new Pessoa();
         }
     ?>
 
-    <article class="<?=$pessoa_saudavel->tempo_de_vida == 90 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 90 ? 'right' : 'wrong'?>">
         <label>
             Pessoa saudável:
         </label>
         <div>Tinha 85 anos de expectativa, praticou exercícios:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Deveria ter 90</b> anos de expectativa de vida
         </div>
     </article>
-    <article class="<?=$pessoa_desleixada->tempo_de_vida == 80 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 80 ? 'right' : 'wrong'?>">
         <label>
             Pessoa desleixada:
         </label>
         <div>Tinha 85 anos de expectativa, fumou:</div>
         <div>
-            <b>Tem <?=$pessoa_desleixada->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Deveria ter 80</b> anos de expectativa de vida
@@ -90,25 +90,25 @@ $pessoa_desleixada = new Pessoa();
         }
     ?>
 
-    <article class="<?=$pessoa_saudavel->tempo_de_vida == 95 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 95 ? 'right' : 'wrong'?>">
         <label>
             Pessoa saudável:
         </label>
         <div>Tinha 85 anos de expectativa, praticou mais exercícios:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Deveria ter 90</b> anos de expectativa de vida
         </div>
     </article>
-    <article class="<?=$pessoa_desleixada->tempo_de_vida == 70 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 70 ? 'right' : 'wrong'?>">
         <label>
             Pessoa desleixada:
         </label>
         <div>Tinha 85 anos de expectativa, fumou mais:</div>
         <div>
-            <b>Tem <?=$pessoa_desleixada->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Deveria ter 80</b> anos de expectativa de vida
@@ -124,25 +124,25 @@ $pessoa_desleixada = new Pessoa();
     ?>
     <h2>Teste de limites:</h2>
 
-    <article class="<?=$pessoa_saudavel->tempo_de_vida == 100 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 100 ? 'right' : 'wrong'?>">
         <label>
             Pessoa saudável:
         </label>
         <div>Praticando muito exercício durante a vida toda:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Não deveria passar de 100</b> anos de expectativa de vida
         </div>
     </article>
-    <article class="<?=$pessoa_desleixada->tempo_de_vida == 35 ? 'right' : 'wrong'?>">
+    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 35 ? 'right' : 'wrong'?>">
         <label>
             Pessoa desleixada:
         </label>
         <div>Continuou fumando a vida toda:</div>
         <div>
-            <b>Tem <?=$pessoa_desleixada->tempo_de_vida?></b> anos de expectativa de vida
+            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
         </div>
         <div>
             <b>Não deveria baixar de 35</b> anos de expectativa de vida
