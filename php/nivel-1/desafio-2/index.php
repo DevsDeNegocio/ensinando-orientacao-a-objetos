@@ -154,7 +154,7 @@ $carro = new Carro();
             Carro que rodou mais de 10000km
         </label>
         <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
             O valor do carro <b>deveria ser R$40000</b>
@@ -169,7 +169,7 @@ $carro = new Carro();
             Carro que rodou mais de 60000km
         </label>
         <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
             O valor do carro <b>deveria ser R$30000</b>
@@ -192,7 +192,7 @@ $carro = new Carro();
             Carro que rodou menos de 1000 km e teve 2 problemas
         </label>
         <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
             O valor do carro <b>deveria ser R$43000</b>
@@ -208,7 +208,7 @@ $carro = new Carro();
             Carro que rodou menos de 60000km e teve 10 problemas
         </label>
         <div>
-            O valor do carro <b> éR$<?=$carro->valor?></b>
+            O valor do carro <b> é R$<?=$carro->valor?></b>
         </div>
         <div>
             O valor do carro <b>deveria ser R$20000</b>
