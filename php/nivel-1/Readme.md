@@ -8,10 +8,10 @@ Esta classe deve ter um atributo chamado **expectativa_de_vida** e por padrão u
 
 Esta classe também deve ter 2 métodos **fumar** e **exercitar**.
 
-    - Fumar deve mininuir **1 ano** de expectativa de vida, chegando no **mínimo de 35 anos**
+- Fumar deve mininuir **1 ano** de expectativa de vida, chegando no **mínimo de 35 anos**
     
-    - Exercitar deve aumentar **1 ano** de expectativa de vida, chegando no **máximo de 100 anos**
-    
+- Exercitar deve aumentar **1 ano** de expectativa de vida, chegando no **máximo de 100 anos**
+
 ## Regras
 
 Você só pode alterar seu arquivo Pessoa.php, nada nos outros arquivos, como index.php ou test.php, pode ser alterado.
@@ -41,3 +41,9 @@ php -S localhost:8000
 ```
 
 E então acesse em seu navegador a url: http://localhost:8000
+
+Para rodar a versão silenciosa de console rode:
+
+```bash
+php test.php
+```
