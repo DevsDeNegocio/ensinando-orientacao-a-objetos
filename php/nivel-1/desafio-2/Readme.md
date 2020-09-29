@@ -26,7 +26,7 @@ Os testes indicarão se seu código está funcionando ou não, faça todas as al
 Se você quer baixar apenas este teste desafio, rode o comando abaixo em seu terminal:
 
 ```bash
-svn checkout https://github.com/DevsDeNegocio/ensinando-orientacao-a-objetos/trunk/php/nivel-1
+svn checkout https://github.com/DevsDeNegocio/ensinando-orientacao-a-objetos/trunk/php/nivel-1/desafio-2
 ```
 
 Se quiser baixar todos os desafios pode baixar o repositório completo usando:

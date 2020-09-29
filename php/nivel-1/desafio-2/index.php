@@ -44,110 +44,137 @@ $carro = new Carro();
 <body>
 <main>
     <h2>Teste simples:</h2>
-    <?php
-        for($i = 0; $i<5; $i++){
-            $pessoa_saudavel->exercitar();
-            $pessoa_desleixada->fumar();
-        }
-    ?>
 
-    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 90 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 50000 ? 'right' : 'wrong'?>">
         <label>
-            Pessoa saudável:
+            Carro deve iniciar com o valor padrão de R$50.000
         </label>
-        <div>Tinha 85 anos de expectativa, praticou exercícios:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
+            O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            <b>Deveria ter 90</b> anos de expectativa de vida
-        </div>
-    </article>
-    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 80 ? 'right' : 'wrong'?>">
-        <label>
-            Pessoa desleixada:
-        </label>
-        <div>Tinha 85 anos de expectativa, fumou:</div>
-        <div>
-            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
-        </div>
-        <div>
-            <b>Deveria ter 80</b> anos de expectativa de vida
+            O valor do carro <b>deveria ser R$50000</b>
         </div>
     </article>
 </main>
 
 <section>
-    <h2>Teste com números maiores:</h2>
+    <h2>Teste de carro com problemas:</h2>
 
     <?php
-        for($i = 0; $i<5; $i++){
-            $pessoa_saudavel->exercitar();
-        }
-        for($i = 0; $i<10; $i++){
-            $pessoa_desleixada->fumar();
-        }
+    $carro->problema();
     ?>
 
-    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 95 ? 'right' : 'wrong'?>">
+    <article class="<?=$carro->valor == 49000 ? 'right' : 'wrong'?>">
         <label>
-            Pessoa saudável:
+            Carro com 1 problema:
         </label>
-        <div>Tinha 85 anos de expectativa, praticou mais exercícios:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
+            O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            <b>Deveria ter 90</b> anos de expectativa de vida
+            O valor do carro <b>deveria ser R$49000</b>
         </div>
     </article>
-    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 70 ? 'right' : 'wrong'?>">
+
+    <?php
+    $carro->problema();
+    $carro->problema();
+    $carro->problema();
+    $carro->problema();
+    ?>
+    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
         <label>
-            Pessoa desleixada:
+            Carro com 5 problema:
         </label>
-        <div>Tinha 85 anos de expectativa, fumou mais:</div>
         <div>
-            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
+            O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            <b>Deveria ter 80</b> anos de expectativa de vida
+            O valor do carro <b>deveria ser R$49000</b>
         </div>
     </article>
 </section>
+
 <section>
-    <?php
-        for($i = 0; $i<100; $i++){
-            $pessoa_saudavel->exercitar();
-            $pessoa_desleixada->fumar();
-        }
-    ?>
-    <h2>Teste de limites:</h2>
+    <h2>Teste de carro que já rodou:</h2>
 
-    <article class="<?=$pessoa_saudavel->expectativa_de_vida == 100 ? 'right' : 'wrong'?>">
+
+    <?php
+    $carro = new Carro();
+    $carro->rodar(999);
+    ?>
+    <article class="<?=$carro->valor == 50000 ? 'right' : 'wrong'?>">
         <label>
-            Pessoa saudável:
+            Carro que rodou menos de 1000 km
         </label>
-        <div>Praticando muito exercício durante a vida toda:</div>
         <div>
-            <b>Tem <?=$pessoa_saudavel->expectativa_de_vida?></b> anos de expectativa de vida
+            O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            <b>Não deveria passar de 100</b> anos de expectativa de vida
+            O valor do carro <b>deveria ser R$49000</b>
         </div>
     </article>
-    <article class="<?=$pessoa_desleixada->expectativa_de_vida == 35 ? 'right' : 'wrong'?>">
+    <?php
+    $carro = new Carro();
+    $carro->rodar(1000);
+    ?>
+    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
         <label>
-            Pessoa desleixada:
+            Carro que rodou exatos 1000 km
         </label>
-        <div>Continuou fumando a vida toda:</div>
         <div>
-            <b>Tem <?=$pessoa_desleixada->expectativa_de_vida?></b> anos de expectativa de vida
+            O valor do carro <b> éR$<?=$carro->valor?></b>
         </div>
         <div>
-            <b>Não deveria baixar de 35</b> anos de expectativa de vida
+            O valor do carro <b>deveria ser R$45000</b>
+        </div>
+    </article>
+    <?php
+    $carro = new Carro();
+    $carro->rodar(5000);
+    ?>
+    <article class="<?=$carro->valor == 45000 ? 'right' : 'wrong'?>">
+        <label>
+            Carro que rodou mais de 1000km mas menos de 10000km
+        </label>
+        <div>
+            O valor do carro <b> éR$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$45000</b>
+        </div>
+    </article>
+    <?php
+    $carro = new Carro();
+    $carro->rodar(10000);
+    ?>
+    <article class="<?=$carro->valor == 40000 ? 'right' : 'wrong'?>">
+        <label>
+            Carro que rodou mais de 10000km
+        </label>
+        <div>
+            O valor do carro <b> éR$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$40000</b>
+        </div>
+    </article>
+    <?php
+    $carro = new Carro();
+    $carro->rodar(60000);
+    ?>
+    <article class="<?=$carro->valor == 30000 ? 'right' : 'wrong'?>">
+        <label>
+            Carro que rodou mais de 10000km
+        </label>
+        <div>
+            O valor do carro <b> éR$<?=$carro->valor?></b>
+        </div>
+        <div>
+            O valor do carro <b>deveria ser R$30000</b>
         </div>
     </article>
 </section>
-
 </body>
 </html>
