@@ -6,7 +6,7 @@ Você deve criar um arquivo chamado **Carro.php** nesta pasta.
 
 Este arquivo deve conter uma classe chamada **Carro**.
 
-Esta classe ao ser iniciada deve informar o tipo de carro, sendo os tipos aceitos: luxo, esportivo, sedan, ret
+Esta classe ao ser iniciada deve informar o tipo de carro, sendo os tipos aceitos: luxo, sedan, ret
 
 Caso nenhum tipo seja passado, o tipo ret deve ser atribuido automaticamente.
 
