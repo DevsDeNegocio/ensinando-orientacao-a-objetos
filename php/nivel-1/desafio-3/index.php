@@ -2,33 +2,11 @@
 
 require('./Gato.php');
 
-//$gato = new Gato('persa');
-//$gato = new Gato('sphynx');
-$gato = new Gato('siamês');
-print_r($gato);
-exit;
-
-
-function article($valor, $mensagem, $carro){
-    $class = $carro->valor == $valor ? 'right' : 'wrong';
-    echo "<article class=\"$class\">
-        <label>
-            $mensagem
-        </label>
-        <div>
-            O valor do carro <b> é R$$carro->valor</b>
-        </div>
-        <div>
-            O valor do carro <b>deveria ser R$$valor</b>
-        </div>
-    </article> ";
+function middle($value){
+    return $value >= 40 && $value <= 60;
 }
-
-function section_open($message){
-    echo "<section><h2>$message</h2>";
-}
-function section_close(){
-    echo "</section>";
+function quarter($value){
+    return $value >= 15 && $value <= 35;
 }
 
 ?>
@@ -67,246 +45,196 @@ function section_close(){
         article.wrong b {
             color: red;
         }
+        small{
+            display: block;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
-    <h1>Carro Ret</h1>
+<section>
+    <h2>Gato Persa</h2>
+    <small>100 gatos persas gerados, destes:</small>
     <?php
-    section_open('Teste simples:');
-    $carro = new Carro();
-    article(50000, 'Carro deve iniciar com o valor padrão de R$50000', $carro);
-    section_close();
-
-    section_open('Teste de carro com problemas:');
-    $carro = new Carro();
-    $carro->problema();
-    article(45000, 'Carro com 1 problema', $carro);
-
-    $carro = new Carro();
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    article(32805, 'Carro com 4 problemas', $carro);
-    section_close();
-
-    section_open('Teste de carro que já rodou:');
-    $carro = new Carro();
-    $carro->rodar(999);
-    article(50000, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(1000);
-    article(45000, 'Carro que rodou exatos 1000 km', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(5000);
-    article(45000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(10000);
-    article(40000, 'Carro que rodou mais de 10000km', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(60000);
-    article(30000, 'Carro que rodou mais de 10000km', $carro);
-    section_close();
-
-    section_open('Teste de problema no carro + km rodados:');
-    $carro = new Carro();
-    $carro->rodar(1000);
-    $carro->problema();
-    $carro->problema();
-    article(36450, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(60000);
-    for($i = 0; $i<2; $i++) $carro->problema();
-    article(24300, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
-    section_close();
-
-    section_open('Teste de limite:');
-
-    $carro = new Carro();
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro();
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro();
-    for($i = 0; $i < 46; $i++) $carro->problema();
-    $carro->rodar(1000);
-    article(500, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
-    section_close();
+    $raca = 0;
+    $doceis = 0;
+    $pelo = 0;
+    $mania = 0;
+    for($i=0;$i<100;$i++){
+        $gato = new Gato('persa');
+        if($gato->raca === 'persa') $raca++;
+        if($gato->temperamento === 'dócil') $doceis++;
+        if($gato->pelo === 'longo') $pelo++;
+        if($gato->mania === 'ronronar') $mania++;
+    }
     ?>
-
-
-    <hr/>
-    <h1>Carro Sedan</h1>
+    <article class="<?=$raca == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato persa deve ser da raça <strong>persa</strong>
+        </label>
+        <div>
+            <b><?=$raca?>%</b> dos gatos gerados foram <b>persas</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam ser <b>persas</b>
+        </div>
+    </article>
+    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato persa deve ser sempre de pelo longo
+        </label>
+        <div>
+            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo longo</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam tem <b>pelo longo</b>
+        </div>
+    </article>
+    <article class="<?=$doceis == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato persa deve ser sempre dócil
+        </label>
+        <div>
+            <b><?=$doceis?>%</b> dos gatos gerados foram <b>dóceis</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam ser <b>dóceis</b>
+        </div>
+    </article>
+    <article class="<?=middle($mania) ? 'right' : 'wrong'?>">
+        <label>
+            Metade dos gatos persa devem ronronar
+        </label>
+        <div>
+            <b><?=$mania?>%</b> dos gatos <b>ronronam</b>
+        </div>
+        <div>
+            <b>50%</b> (aproximadamente) deveriam <b>ronronar</b>
+        </div>
+    </article>
+</section>
+<section>
+    <h2>Gato Sphynx</h2>
+    <small>100 gatos sphynxs gerados, destes:</small>
     <?php
-    section_open('Teste simples:');
-    $carro = new Carro('sedan');
-    article(100000, 'Carro deve iniciar com o valor padrão de R$100000', $carro);
-    section_close();
-
-    section_open('Teste de carro com problemas:');
-    $carro = new Carro('sedan');
-    $carro->problema();
-    article(90000, 'Carro com 1 problema', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    article(65610, 'Carro com 4 problemas', $carro);
-    section_close();
-
-    section_open('Teste de carro que já rodou:');
-    $carro = new Carro('sedan');
-    $carro->rodar(999);
-    article(100000, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(1000);
-    article(90000, 'Carro que rodou exatos 1000 km', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(5000);
-    article(90000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(10000);
-    article(80000, 'Carro que rodou mais de 10000km', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(60000);
-    article(60000, 'Carro que rodou mais de 10000km', $carro);
-    section_close();
-
-    section_open('Teste de problema no carro + km rodados:');
-    $carro = new Carro('sedan');
-    $carro->rodar(1000);
-    $carro->problema();
-    $carro->problema();
-    article(72900, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(60000);
-    for($i = 0; $i<2; $i++) $carro->problema();
-    article(48600, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
-    section_close();
-
-    section_open('Teste de limite:');
-
-    $carro = new Carro('sedan');
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro('sedan');
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro('sedan');
-    for($i = 0; $i < 46; $i++) $carro->problema();
-    $carro->rodar(1000);
-    article(1000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
-    section_close();
+    $raca = 0;
+    $doceis = 0;
+    $pelo = 0;
+    $mania = 0;
+    for($i=0;$i<100;$i++){
+        $gato = new Gato('sphynx');
+        if($gato->raca === 'sphynx') $raca++;
+        if($gato->temperamento === 'arisco') $doceis++;
+        if($gato->pelo === 'ralo') $pelo++;
+        if($gato->mania === 'arranhar') $mania++;
+    }
     ?>
+    <article class="<?=$raca == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato sphynx deve ser da raça <strong>sphynx</strong>
+        </label>
 
-
-
-    <hr/>
-    <h1>Carro Luxo</h1>
+        <div>
+            <b><?=$raca?>%</b> dos gatos gerados foram <b>sphynx</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam ser <b>sphynx</b>
+        </div>
+    </article>
+    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato sphynx deve ser sempre de pelo ralo
+        </label>
+        <div>
+            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo ralo</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam tem <b>pelo ralo</b>
+        </div>
+    </article>
+    <article class="<?=$doceis == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato sphynx deve ser sempre arisco
+        </label>
+        <div>
+            <b><?=$doceis?>%</b> dos gatos gerados foram <b>ariscos</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam ser <b>ariscos</b>
+        </div>
+    </article>
+    <article class="<?=middle($mania) ? 'right' : 'wrong'?>">
+        <label>
+            Metade dos gatos sphynx devem arranhar
+        </label>
+        <div>
+            <b><?=$mania?>%</b> dos gatos <b>arranham</b>
+        </div>
+        <div>
+            <b>50%</b> (aproximadamente) deveriam <b>arranhar</b>
+        </div>
+    </article>
+</section>
+<section>
+    <h2>Gato Siamês</h2>
+    <small>100 gatos siameses gerados, destes:</small>
     <?php
-    section_open('Teste simples:');
-    $carro = new Carro('luxo');
-    article(1000000, 'Carro deve iniciar com o valor padrão de R$100000', $carro);
-    section_close();
-
-    section_open('Teste de carro com problemas:');
-    $carro = new Carro('luxo');
-    $carro->problema();
-    article(900000, 'Carro com 1 problema', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    $carro->problema();
-    article(656100, 'Carro com 4 problemas', $carro);
-    section_close();
-
-    section_open('Teste de carro que já rodou:');
-    $carro = new Carro('luxo');
-    $carro->rodar(999);
-    article(1000000, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(1000);
-    article(900000, 'Carro que rodou exatos 1000 km', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(5000);
-    article(900000, 'Carro que rodou mais de 1000km mas menos de 10000km', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(10000);
-    article(800000, 'Carro que rodou mais de 10000km', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(60000);
-    article(600000, 'Carro que rodou mais de 10000km', $carro);
-    section_close();
-
-    section_open('Teste de problema no carro + km rodados:');
-    $carro = new Carro('luxo');
-    $carro->rodar(1000);
-    $carro->problema();
-    $carro->problema();
-    article(729000, 'Carro que rodou menos de 1000 km', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(60000);
-    for($i = 0; $i<2; $i++) $carro->problema();
-    article(486000, 'Carro que rodou menos de 60000km e teve 2 problemas', $carro);
-    section_close();
-
-    section_open('Teste de limite:');
-
-    $carro = new Carro('luxo');
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro('luxo');
-    $carro->rodar(60000);
-    for($i = 0; $i < 10000; $i++) $carro->problema();
-    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (km + problema)', $carro);
-
-    $carro = new Carro('luxo');
-    for($i = 0; $i < 46; $i++) $carro->problema();
-    $carro->rodar(1000);
-    article(10000, 'Mesmo com todos os problemas possíveis não deve baixar de 1% do valor original do carro (problema + km)', $carro);
-    section_close();
+    $raca = 0;
+    $doceis = 0;
+    $pelo = 0;
+    $mania = 0;
+    for($i=0;$i<100;$i++){
+        $gato = new Gato('siamês');
+        if($gato->raca === 'siamês') $raca++;
+        if($gato->temperamento === 'arisco') $doceis++;
+        if($gato->pelo === 'curto') $pelo++;
+        if($gato->mania === 'arranhar') $mania++;
+    }
     ?>
+    <article class="<?=$raca == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato siamês deve ser da raça <strong>siamês</strong>
+        </label>
+        <div>
+            <b><?=$raca?>%</b> dos gatos gerados foram <b>siamês</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam ser <b>siamês</b>
+        </div>
+    </article>
+    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
+        <label>
+            Gato siamês deve ser sempre de pelo ralo
+        </label>
+        <div>
+            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo ralo</b>
+        </div>
+        <div>
+            <b>100%</b> deveriam tem <b>pelo ralo</b>
+        </div>
+    </article>
+    <article class="<?=($doceis >= 40 && $doceis <= 60) ? 'right' : 'wrong'?>">
+        <label>
+            Gato siamês deve ser sempre arisco
+        </label>
+        <div>
+            <b><?=$doceis?>%</b> dos gatos gerados foram <b>dóceis</b>
+        </div>
+        <div>
+            <b>50%</b> (aproximadamente) deveriam ser <b>dóceis</b>
+        </div>
+    </article>
+    <article class="<?=quarter($mania) ? 'right' : 'wrong'?>">
+        <label>
+            Um quarto dos gatos siameses devem arranhar
+        </label>
+        <div>
+            <b><?=$mania?>%</b> dos gatos <b>arranham</b>
+        </div>
+        <div>
+            <b>25%</b> (aproximadamente) deveriam <b>arranhar</b>
+        </div>
+    </article>
+</section>
 </body>
 </html>

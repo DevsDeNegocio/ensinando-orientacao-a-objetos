@@ -25,7 +25,7 @@ function createMany($type, $quantity = 20){
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Pessoa</title>
+    <title>Gato debug</title>
     <style>
         body{
             margin: 0;
