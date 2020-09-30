@@ -2,7 +2,9 @@
 
 require('./Gato.php');
 
-$gato = new exemplo;
+//$gato = new Gato('persa');
+//$gato = new Gato('sphynx');
+$gato = new Gato('siamês');
 print_r($gato);
 exit;
 
