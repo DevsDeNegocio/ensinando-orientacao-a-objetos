@@ -53,6 +53,58 @@ function quarter($value){
 </head>
 <body>
 <section>
+    <h2>Geral</h2>
+
+    <?php
+    $valids = false;
+    try{
+        new Gato('persa');
+        new Gato('siamês');
+        new Gato('sphynx');
+        $valids = true;
+    }
+    catch(Exception $e){}
+    ?>
+    <article class="<?=$valids ? 'right' : 'wrong'?>">
+        <label>
+            Deve permitir criar gatos persa, siamês e sphynx
+        </label>
+        <div>
+            <b><?=$valids ? 'Os gatos foram criados sem problema' : 'Algum dos gatos não foi criado normalmente'?></b>
+        </div>
+    </article>
+
+    <?php
+    $valids = false;
+    try{
+        new Gato('angorá');
+    }
+    catch(Error $e){
+        $valids = true;
+    }
+    ?>
+    <article class="<?=$valids ? 'right' : 'wrong'?>">
+        <label>
+            Não deve permitir criar um gato angorá
+        </label>
+        <div>
+            <b><?=$valids ? 'Os gatos foram bloqueados sem problema' : 'Permitiu criar um gato angorá e não devia'?></b>
+        </div>
+    </article>
+
+    <article class="<?=Gato::anos_humanos(10) == 70 ? 'right' : 'wrong'?>">
+        <label>
+            Anos humanos
+        </label>
+        <div>
+            Gato::anos_humanos(10) retornou <b><?=Gato::anos_humanos(10)?></b>
+        </div>
+        <div>
+            Gato::anos_humanos(10) deveria retornar <b>70</b>
+        </div>
+    </article>
+</section>
+<section>
     <h2>Gato Persa</h2>
     <small>100 gatos persas gerados, destes:</small>
     <?php
