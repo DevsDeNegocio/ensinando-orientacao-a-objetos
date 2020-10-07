@@ -116,12 +116,12 @@ function quarter($value){
             <b><?=$gato->raca === 'sphynx' ? 'Tentou mudar a raça para siamês e não conseguiu' : 'Permitiu criar trocar de raça de sphinx para persa'?></b>
         </div>
     </article>
-    <article class="<?=$gato->raca === 'arisco' ? 'right' : 'wrong'?>">
+    <article class="<?=$gato->temperamento === 'arisco' ? 'right' : 'wrong'?>">
         <label>
             A temperamento do gato não pode ser alterado
         </label>
         <div>
-            <b><?=$gato->raca === 'arisco' ? 'Tentou mudar a temperamento para arisco e não conseguiu' : 'Permitiu criar trocar de temperamento de arisco para dócil'?></b>
+            <b><?=$gato->temperamento === 'arisco' ? 'Tentou mudar a temperamento para arisco e não conseguiu' : 'Permitiu criar trocar de temperamento de arisco para dócil'?></b>
         </div>
     </article>
 </section>
