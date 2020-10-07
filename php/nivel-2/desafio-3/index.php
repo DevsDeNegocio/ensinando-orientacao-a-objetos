@@ -121,7 +121,7 @@ function quarter($value){
             A temperamento do gato não pode ser alterado
         </label>
         <div>
-            <b><?=$gato->raca === 'sphynx' ? 'Tentou mudar a temperamento para arisco e não conseguiu' : 'Permitiu criar trocar de temperamento de dócil para arisco'?></b>
+            <b><?=$gato->raca === 'arisco' ? 'Tentou mudar a temperamento para arisco e não conseguiu' : 'Permitiu criar trocar de temperamento de arisco para dócil'?></b>
         </div>
     </article>
 </section>
