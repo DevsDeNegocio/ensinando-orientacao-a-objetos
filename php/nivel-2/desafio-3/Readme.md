@@ -9,14 +9,13 @@ Esta classe deve conter 4 **atributos**, são eles:
 - raca
 - temperamento
 - mania
-- pelo
 
 Um Gato quando é criado deve informar a raça, que pode ser: **persa, siamês ou sphynx**.
 
 As regras são:
 
-- Um Gato do tipo **persa** é sempre dócil e de pelo **longo**
-- Um Gato do tipo **sphynx** é sempre arisco e de pelo **ralo**
+- Um Gato do tipo **persa** é sempre dócil
+- Um Gato do tipo **sphynx** é sempre arisco
 - Um Gato do tipo **siamês** tem 50% de chance de ser dócil ou arisco
 - Todo Gato **arisco** tem 50% de chance de ter a mania de **arranhar** ou de **rosnar**
 - Todo Gato **dócil** tem 50% de chance de ter a mania de **ronronar** ou **se esfregar na perna do dono**
