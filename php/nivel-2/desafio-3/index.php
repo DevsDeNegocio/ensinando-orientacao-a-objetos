@@ -103,6 +103,27 @@ function quarter($value){
             Gato::anos_humanos(10) deveria retornar <b>70</b>
         </div>
     </article>
+    <?php
+    $gato = new Gato('sphynx');
+    $gato->raca = 'siamês';
+    $gato->temperamento = 'dócil';
+    ?>
+    <article class="<?=$gato->raca === 'sphynx' ? 'right' : 'wrong'?>">
+        <label>
+            A raça do gato não pode ser mudada
+        </label>
+        <div>
+            <b><?=$gato->raca === 'sphynx' ? 'Tentou mudar a raça para siamês e não conseguiu' : 'Permitiu criar trocar de raça de sphinx para persa'?></b>
+        </div>
+    </article>
+    <article class="<?=$gato->raca === 'arisco' ? 'right' : 'wrong'?>">
+        <label>
+            A temperamento do gato não pode ser alterado
+        </label>
+        <div>
+            <b><?=$gato->raca === 'sphynx' ? 'Tentou mudar a temperamento para arisco e não conseguiu' : 'Permitiu criar trocar de temperamento de dócil para arisco'?></b>
+        </div>
+    </article>
 </section>
 <section>
     <h2>Gato Persa</h2>

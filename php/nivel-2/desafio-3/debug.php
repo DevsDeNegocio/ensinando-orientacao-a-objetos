@@ -11,10 +11,10 @@ function createMany($type, $quantity = 20){
         $raca = $var.'->raca';
         if($i>1) echo "<hr>";
         if(in_array($type, ['persa', 'sphynx'])){
-            echo "<div>$var = new Gato('$type');</div><div>$raca = <b>'$gato->raca'</b>;</div><div>$temperamento = <b>null</b>;</div><div>$mania = <strong>'$gato->mania'</strong>;</div>";
+            echo "<div>$var = new Gato('$type');</div><div>$raca = <b>'$gato->raca'</b>;</div><div>$temperamento = <b>'$gato->temperamento'</b>;</div><div>$mania = <strong>'$gato->mania'</strong>;</div>";
         }
         else{
-            echo "<div>$var = new Gato('$type');</div><div>$raca = <b>'$gato->raca'</b>;</div><div>$temperamento = <b>null</b>;</div><div>$mania = <strong>'$gato->mania'</strong>;</div>";
+            echo "<div>$var = new Gato('$type');</div><div>$raca = <b>'$gato->raca'</b>;</div><div>$temperamento = <strong>'$gato->temperamento'</strong>;</div><div>$mania = <strong>'$gato->mania'</strong>;</div>";
         }
     }
 }
