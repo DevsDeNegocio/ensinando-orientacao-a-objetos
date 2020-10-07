@@ -110,13 +110,11 @@ function quarter($value){
     <?php
     $raca = 0;
     $doceis = 0;
-    $pelo = 0;
     $mania = 0;
     for($i=0;$i<100;$i++){
         $gato = new Gato('persa');
         if($gato->raca === 'persa') $raca++;
         if($gato->temperamento === 'dócil') $doceis++;
-        if($gato->pelo === 'longo') $pelo++;
         if($gato->mania === 'ronronar') $mania++;
     }
     ?>
@@ -129,17 +127,6 @@ function quarter($value){
         </div>
         <div>
             <b>100%</b> deveriam ser <b>persas</b>
-        </div>
-    </article>
-    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
-        <label>
-            Gato persa deve ser sempre de pelo longo
-        </label>
-        <div>
-            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo longo</b>
-        </div>
-        <div>
-            <b>100%</b> deveriam tem <b>pelo longo</b>
         </div>
     </article>
     <article class="<?=$doceis == 100 ? 'right' : 'wrong'?>">
@@ -171,13 +158,11 @@ function quarter($value){
     <?php
     $raca = 0;
     $doceis = 0;
-    $pelo = 0;
     $mania = 0;
     for($i=0;$i<100;$i++){
         $gato = new Gato('sphynx');
         if($gato->raca === 'sphynx') $raca++;
         if($gato->temperamento === 'arisco') $doceis++;
-        if($gato->pelo === 'ralo') $pelo++;
         if($gato->mania === 'arranhar') $mania++;
     }
     ?>
@@ -191,17 +176,6 @@ function quarter($value){
         </div>
         <div>
             <b>100%</b> deveriam ser <b>sphynx</b>
-        </div>
-    </article>
-    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
-        <label>
-            Gato sphynx deve ser sempre de pelo ralo
-        </label>
-        <div>
-            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo ralo</b>
-        </div>
-        <div>
-            <b>100%</b> deveriam tem <b>pelo ralo</b>
         </div>
     </article>
     <article class="<?=$doceis == 100 ? 'right' : 'wrong'?>">
@@ -233,13 +207,11 @@ function quarter($value){
     <?php
     $raca = 0;
     $doceis = 0;
-    $pelo = 0;
     $mania = 0;
     for($i=0;$i<100;$i++){
         $gato = new Gato('siamês');
         if($gato->raca === 'siamês') $raca++;
         if($gato->temperamento === 'arisco') $doceis++;
-        if($gato->pelo === 'curto') $pelo++;
         if($gato->mania === 'arranhar') $mania++;
     }
     ?>
@@ -252,17 +224,6 @@ function quarter($value){
         </div>
         <div>
             <b>100%</b> deveriam ser <b>siamês</b>
-        </div>
-    </article>
-    <article class="<?=$pelo == 100 ? 'right' : 'wrong'?>">
-        <label>
-            Gato siamês deve ser sempre de pelo ralo
-        </label>
-        <div>
-            <b><?=$pelo?>%</b> dos gatos gerados tem <b>pelo ralo</b>
-        </div>
-        <div>
-            <b>100%</b> deveriam tem <b>pelo ralo</b>
         </div>
     </article>
     <article class="<?=($doceis >= 40 && $doceis <= 60) ? 'right' : 'wrong'?>">
