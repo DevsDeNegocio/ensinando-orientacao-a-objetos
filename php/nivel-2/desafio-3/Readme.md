@@ -4,7 +4,7 @@ Gatos de pelo longo tendem a ser dóceis, gatos de pelo ralo tendem a ser mais a
 
 Sabendo disso, crie um arquivo com o nome de **Gato.php** que possua uma classe **Gato**.
 
-Esta classe deve conter 4 **atributos**, são eles:
+Esta classe deve conter 3 **atributos**, são eles:
 
 - raca
 - temperamento
